@@ -1,6 +1,3 @@
-#ifndef CampoMinado.h
-#define CampoMinado.h
-
 /* int **criaMatriz(int ncols, int nrows)
     Entradas:
         int ncols: Número de Colunas
@@ -115,5 +112,3 @@ void showMatriz(int **matriz, int nrows, int ncols)
         cout << endl;
     }
 }
-
-#endif
