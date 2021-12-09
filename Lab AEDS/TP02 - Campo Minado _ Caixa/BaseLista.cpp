@@ -12,7 +12,7 @@ typedef struct elemento
 
 typedef elemento *Lista;
 
-Lista *cria_lista()
+Lista *criaLista()
 {
     Lista *lista = (Lista *)malloc(sizeof(Lista));
     if (lista != NULL)
@@ -20,7 +20,7 @@ Lista *cria_lista()
     return lista;
 }
 
-void libera_lista(Lista *lista)
+void liberaLista(Lista *lista)
 {
     if (lista == NULL)
         return;
@@ -35,14 +35,14 @@ void libera_lista(Lista *lista)
     free(lista);
 }
 
-int lista_vazia(Lista *lista)
+int listaVazia(Lista *lista)
 {
     return (lista == NULL || *lista == NULL);
 }
 
-int tamanho_lista(Lista *lista)
+int tamanhoLista(Lista *lista)
 {
-    if (lista_vazia(lista))
+    if (listaVazia(lista))
         return 0;
     int tam = 0;
     elemento *elem = *lista;
@@ -55,7 +55,7 @@ int tamanho_lista(Lista *lista)
     return tam;
 }
 
-int insere_lista_inicio(Lista *lista, int valor)
+int insereListaInicio(Lista *lista, int valor)
 {
     if (lista == NULL)
         return 1;
@@ -67,7 +67,7 @@ int insere_lista_inicio(Lista *lista, int valor)
     return 0;
 }
 
-int insere_lista_final(Lista *lista, int valor)
+int insereListaFinal(Lista *lista, int valor)
 {
     if (lista == NULL)
         return 1;
@@ -88,9 +88,9 @@ int insere_lista_final(Lista *lista, int valor)
     return 0;
 }
 
-int remove_lista_inicio(Lista *lista)
+int removeListaInicio(Lista *lista)
 {
-    if (lista_vazia(lista))
+    if (listaVazia(lista))
         return 1;
 
     elemento *aux = *lista;
@@ -99,9 +99,9 @@ int remove_lista_inicio(Lista *lista)
     return 0;
 }
 
-int remove_lista_final(Lista *lista)
+int removeListaFinal(Lista *lista)
 {
-    if (lista_vazia(lista))
+    if (listaVazia(lista))
         return 1;
     elemento *anterior, *elem = *lista;
     while (elem->proximo != NULL)
@@ -120,20 +120,23 @@ int remove_lista_final(Lista *lista)
     return 0;
 }
 
-void mostra_lista(Lista *lista)
+void mostraLista(Lista *lista)
 {
-    if (lista_vazia(lista))
+    if (listaVazia(lista))
         return;
 
     elemento *elem = *lista;
     int posicao = 0;
 
-    printf("-------\n");
+    printf("[Início] -> ");
     while (elem != NULL)
     {
-        printf("[%d]: %d\n", posicao, elem->dado);
+        if (elem->dado == -1)
+            printf(" * ->");
+        else
+            printf(" %d ->", elem->dado);
         elem = elem->proximo;
         posicao++;
     }
-    printf("-------\n");
+    printf(" [Fim]\n");
 }

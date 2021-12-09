@@ -26,9 +26,11 @@ int **alocaBombas(int **matriz, int nrows, int ncols, int nBombas)
     {
         do
         {
-            posTeste = rand() % ((nrows * ncols));
+            posTeste = rand() % (nrows * ncols);
             fAloca = true;
-            if (i == 0)
+            if (posTeste == 0 || posTeste == (nrows * ncols)-1)
+                fAloca = false; // Recusa 1ª e Última posições
+            else if (i == 0)
                 break;
             else
                 for (int j = 0; j < nAlocadas; j++)

@@ -3,25 +3,25 @@
 
 #include "BaseLista.cpp"
 
-/* Lista* cria_lista()
+/* Lista* criaLista()
     Entradas:
     Retorno:
         Lista*: Estrutura Lista
     Função:
         Criação de uma lista vazia
  */
-Lista *cria_lista();
+Lista *criaLista();
 
-/* void libera_lista(Lista* lista)
+/* void liberaLista(Lista* lista)
     Entradas:
         Lista* lista: Estrutura Lista
     Retorno:
     Função:
         Deleta completamente uma lista
  */
-void libera_lista(Lista *lista);
+void liberaLista(Lista *lista);
 
-/* int lista_vazia(Lista* lista)
+/* int listaVazia(Lista* lista)
     Entradas:
         Lista* lista: Estrutura Lista
     Retorno:
@@ -29,9 +29,9 @@ void libera_lista(Lista *lista);
     Função:
         Verifica se uma lista é vazia
  */
-int lista_vazia(Lista *lista);
+int listaVazia(Lista *lista);
 
-/* int tamanho_lista(Lista* lista)
+/* int tamanhoLista(Lista* lista)
     Entradas:
         Lista* lista: Estrutura Lista
     Retorno:
@@ -39,9 +39,9 @@ int lista_vazia(Lista *lista);
     Função:
         Calcula o tamanho da lista
  */
-int tamanho_lista(Lista *lista);
+int tamanhoLista(Lista *lista);
 
-/* int insere_lista_inicio(Lista* lista, int valor)
+/* int insereListaInicio(Lista* lista, int valor)
     Entradas:
         Lista* lista: Estrutura Lista
         int valor: Valor
@@ -50,7 +50,7 @@ int tamanho_lista(Lista *lista);
     Função:
         Adiciona um valor no início da lista
  */
-int insere_lista_inicio(Lista *lista, int valor);
+int insereListaInicio(Lista *lista, int valor);
 
 /* int **criaMatriz(int ncols, int nrows)
     Entradas:
@@ -61,7 +61,7 @@ int insere_lista_inicio(Lista *lista, int valor);
     Função:
         Adiciona um valor no final da lista
  */
-int insere_lista_final(Lista *lista, int valor);
+int insereListaFinal(Lista *lista, int valor);
 
 /* int **criaMatriz(int ncols, int nrows)
     Entradas:
@@ -71,7 +71,7 @@ int insere_lista_final(Lista *lista, int valor);
     Função:
         Remove primeiro valor
  */
-int remove_lista_inicio(Lista *lista);
+int removeListaInicio(Lista *lista);
 
 /* int **criaMatriz(int ncols, int nrows)
     Entradas:
@@ -81,7 +81,7 @@ int remove_lista_inicio(Lista *lista);
     Função:
         Remove último valor
  */
-int remove_lista_final(Lista *lista);
+int removeListaFinal(Lista *lista);
 
 /* int **criaMatriz(int ncols, int nrows)
     Entradas:
@@ -90,6 +90,6 @@ int remove_lista_final(Lista *lista);
     Função:
         Mostrar a lista
  */
-void mostra_lista(Lista *lista);
+void mostraLista(Lista *lista);
 
 #endif
