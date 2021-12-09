@@ -75,7 +75,12 @@ void showMatriz(int **matriz, int nrows, int ncols)
     for (int i = 0; i < nrows; i++)
     {
         for (int j = 0; j < ncols; j++)
-            cout << matriz[i][j] << "\t";
+            if (matriz[i][j] == 0)
+                cout << ' ' << "\t";
+            else if (matriz[i][j] == -1)
+                cout << '*' << "\t";
+            else
+                cout << matriz[i][j] << "\t";
         cout << endl;
     }
 }

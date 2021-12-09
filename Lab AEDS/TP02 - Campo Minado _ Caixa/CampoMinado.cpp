@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "CriacaoCampoMinado.h"
+#include "BaseLista.h"
 
 using namespace std;
 
@@ -22,14 +23,13 @@ int main()
     } while (dimX <= 0 || dimY <= 0 || nBomba <= 0 || nBomba > dimX * dimY);
 
     CampoMinado = criaMatriz(dimX, dimY);
-    showMatriz(CampoMinado, dimX, dimY);
-    cout << "\nAlocando Bombas\n";
     CampoMinado = alocaBombas(CampoMinado, dimX, dimY, nBomba);
+    CampoMinado = numBombas(CampoMinado, dimX, dimY);
+    
+    cout << "\nCampo Minado Criado:\n";
     showMatriz(CampoMinado, dimX, dimY);
 
-    cout << "\nNumerando Bombas\n";
-    CampoMinado = numBombas(CampoMinado, dimX, dimY);
-    showMatriz(CampoMinado, dimX, dimY);
+
 
     return 0;
 }
