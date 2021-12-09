@@ -1,3 +1,10 @@
+/*
+    Percepção do Campo Minado através de uma Lista
+        Identificação do tipo de elemento;
+        Criação de um percurso livre de bombas
+    Nathan Xavier
+*/
+
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>

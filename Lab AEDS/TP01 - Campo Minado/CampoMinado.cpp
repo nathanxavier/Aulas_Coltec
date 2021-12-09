@@ -1,3 +1,11 @@
+/*
+    Criação básica de um Campo Minado
+        Definição das posições das bombas;
+        Cálculo de bombas ao redor.
+
+    Nathan Xavier
+*/
+
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
