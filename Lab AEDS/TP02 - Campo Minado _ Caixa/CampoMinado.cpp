@@ -1,16 +1,9 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
-#include "CampoMinado.h"
+#include "CriacaoCampoMinado.h"
 
 using namespace std;
-
-typedef struct elemento
-{
-    int dado;
-    struct elemento *proximo;
-} elemento;
-
 
 int main()
 {

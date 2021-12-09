@@ -1,12 +1,9 @@
-/* int **criaMatriz(int ncols, int nrows)
-    Entradas:
-        int ncols: Número de Colunas
-        int nrows: Número de Linhas
-    Retorno:
-        int **: Matriz
-    Função:
-        Alocação da memória da matriz
- */
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+
+using namespace std;
+
 int **criaMatriz(int nrows, int ncols)
 {
     int **matriz;
@@ -19,17 +16,6 @@ int **criaMatriz(int nrows, int ncols)
     return matriz;
 }
 
-/* int **alocaBombas(int **matriz, int ncols, int nrows, int nBombas)
-    Entradas:
-        int **matriz: Matriz
-        int ncols: Número de Colunas
-        int nrows: Número de Linhas
-        int nBombas: Número total de bombas
-    Retorno:
-        int **: Matriz
-    Função:
-        Identifica e posiciona as bombas na matriz do Campo Minado
- */
 int **alocaBombas(int **matriz, int nrows, int ncols, int nBombas)
 {
     bool fAloca = false;
@@ -62,16 +48,6 @@ int **alocaBombas(int **matriz, int nrows, int ncols, int nBombas)
     return matriz;
 }
 
-/* int **numBombas(int **matriz, int ncols, int nrows)
-    Entradas:
-        int **matriz: Matriz
-        int ncols: Número de Colunas
-        int nrows: Número de Linhas
-    Retorno:
-        int **: Matriz
-    Função:
-        Preenchimento das células com quantidade de bombas ao redor
- */
 int **numBombas(int **matriz, int nrows, int ncols)
 {
     int count = 0;
@@ -94,15 +70,6 @@ int **numBombas(int **matriz, int nrows, int ncols)
     return matriz;
 }
 
-/* void showMatriz(int **matriz, int ncols, int nrows)
-    Entradas:
-        int **matriz: Matriz
-        int ncols: Número de Colunas
-        int nrows: Número de Linhas
-    Retorno:
-    Função:
-        Print do conteúdo da matriz
- */
 void showMatriz(int **matriz, int nrows, int ncols)
 {
     for (int i = 0; i < nrows; i++)
