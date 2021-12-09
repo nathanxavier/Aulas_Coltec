@@ -1,0 +1,140 @@
+%----------------------------------------------------------------------------------------------------------------
+\documentclass[a4paper]{exam}
+
+\usepackage{fullpage}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{inputenc}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+
+
+%----------------------------------------------------------------------------------------------------------------
+% COMANDOS
+%----------------------------------------------------------------------------------------------------------------
+\geometry{a4paper, margin=2cm}
+\renewcommand{\thesubsubsection}{\thesubsection \alph{subsubsection}}
+
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\renewcommand{\theenumi}{\Alph{enumi}}
+
+\pointpoints{ponto}{pontos}
+\bonuspointpoints{ponto extra}{pontos extras}
+\totalformat{Pergunta \thequestion: \totalpoints pontos}
+ 
+\chqword{Pergunta}
+\chpgword{Página}
+\chpword{Pontos}
+\chbpword{Pontos extra}
+\chsword{Pontos Obtidos}
+\chtword{Total}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false, 
+	tabsize=2
+}
+\lstset{style=mystyle}
+
+
+%----------------------------------------------------------------------------------------------------------------
+% TÍTULO
+%----------------------------------------------------------------------------------------------------------------
+\title{
+	\normalfont \normalsize 
+	\textsc{Colégio Técnico - UFMG \\ 
+		Laboratório de AEDS} \\
+	\rule{\linewidth}{0.5pt} \\
+	\huge Trabalho Prático 04 \\
+	\rule{\linewidth}{2pt} \\
+}
+\author{\textbf{Aluno:} \hspace{10cm} \textbf{Turma:}}
+\date{}
+
+\makeindex
+
+%----------------------------------------------------
+% Exercícios
+%----------------------------------------------------
+
+\begin{document}
+\maketitle
+
+\begin{center}
+	\section*{Criação de um Labirinto}
+\end{center}
+
+Como visto na parte teórica, os Grafos são similares às listas com as seguintes informações implementadas:
+\begin{itemize}
+	\item Origem;
+	\item Destino, e;
+	\item Peso.
+\end{itemize}
+
+O conceito de Grafos pode, facilmente, ser observado em situações como o labirinto apresentado abaixo, onde, existem vértices interligados.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.3\textwidth]{Figuras/Maze.png}
+\end{figure}
+
+Neste projeto, vamos desenvolver a técnica chamada Rapidly-Exploring Random Trees (RRT). Maiores informações podem ser vistas nos seguintes links:
+\begin{itemize}
+	\item \href{https://www.youtube.com/watch?v=Ob3BIJkQJEw}{\textbf{RRT, RRT* \& Random Trees}}
+	\item \href{https://www.wolframcloud.com/objects/demonstrations/RapidlyExploringRandomTreeRRTAndRRT-source.nb}{\textbf{Implementação Wolfram Notebook}}
+\end{itemize}
+
+Para a implementação da técnica, siga as seguintes etapas:
+
+\begin{enumerate}
+	\item Construa \textbf{Vértices} que possuam como informações de Posição (X,Y).
+	
+	\item Similar a um Grafo, cada vértice também deve apontar para outro.
+	
+	\item No programa principal, crie vértices em posições aleatórios.
+	
+	\item Faça uma busca por todos os nós do mapa para encontrar qual a menor distância entre o vértice novo e outro já dentro do mapa.
+	
+	Para isso, você pode aplicar o seguinte cálculo entre as posições dos vértices:
+	
+	$$ \text{dist}= \sqrt{(X_i -X_\text{Novo})^2 + (Y_i -Y_\text{Novo})^2} $$
+	
+	\item Encontrada a menor distância, faça um link entre o vértice novo e o vértice mais próximo.
+\end{enumerate}
+
+%-------------------------------------------------
+\end{document}

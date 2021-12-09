@@ -1,0 +1,197 @@
+%----------------------------------------------------------------------------------------------------------------
+\documentclass[a4paper]{exam}
+
+\usepackage{fullpage}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{inputenc}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+
+
+%----------------------------------------------------------------------------------------------------------------
+% COMANDOS
+%----------------------------------------------------------------------------------------------------------------
+\geometry{a4paper, margin=2cm}
+\renewcommand{\thesubsubsection}{\thesubsection \alph{subsubsection}}
+
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\renewcommand{\theenumi}{\Alph{enumi}}
+
+\pointpoints{ponto}{pontos}
+\bonuspointpoints{ponto extra}{pontos extras}
+\totalformat{Pergunta \thequestion: \totalpoints pontos}
+ 
+\chqword{Pergunta}
+\chpgword{Página}
+\chpword{Pontos}
+\chbpword{Pontos extra}
+\chsword{Pontos Obtidos}
+\chtword{Total}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false, 
+	tabsize=2
+}
+\lstset{style=mystyle}
+
+
+%----------------------------------------------------------------------------------------------------------------
+% TÍTULO
+%----------------------------------------------------------------------------------------------------------------
+\title{
+	\normalfont \normalsize 
+	\textsc{Colégio Técnico - UFMG \\ 
+		Laboratório de AEDS} \\
+	\rule{\linewidth}{0.5pt} \\
+	\huge Trabalho Prático 03 \\
+	\rule{\linewidth}{2pt} \\
+}
+\author{\textbf{Aluno:} \hspace{10cm} \textbf{Turma:}}
+\date{}
+
+\makeindex
+
+%----------------------------------------------------
+% Exercícios
+%----------------------------------------------------
+
+\begin{document}
+\maketitle
+
+\begin{center}
+	\section*{Projeto 01 - Torre de Hanoi}
+\end{center}
+
+A Torre de Hanoi é um exercício de lógica muito famoso que envolve o movimento de discos para uma nova localização diferente da inicialmente definida. 
+
+\begin{figure} [H]
+	\centering
+	\includegraphics[width=.5\textwidth]{Figuras/Hanoi.png}
+\end{figure}
+
+Em geral, a solução da Torre de Hanoi está associada à programação recursiva, uma vez que os passos para solução são similares, independente da quantidade de blocos adicionados à torre.
+
+Para a entrega desse projeto, pede-se:
+
+\begin{parts}
+	\part Você deve definir cada haste como uma estrutura de pilha diferente.
+	\part Segundo a lógica da Torre de Hanoi, um bloco de maior numeração nunca pode estar sobre outro bloco de menor numeração.
+	\part É importante sempre mostrar a pilha após cada movimento, para se ter uma noção de como está a dinâmica das torres.
+	
+	\textbf{Exemplo:}
+	$$ \begin{matrix}
+	A: & [3 & 2 & 1] \\
+	B: & [ &  & ] \\
+	C: & [ &  & ]
+	\end{matrix} ~~~\rightarrow~~~
+	\begin{matrix}
+	A: & [3 & 2 & ] \\
+	B: & [1 &  & ] \\
+	C: & [ &  & ]
+	\end{matrix} ~~~\rightarrow~~~
+	\begin{matrix}
+	A: & [3 &  & ] \\
+	B: & [1 &  & ] \\
+	C: & [2 &  & ]
+	\end{matrix} ~~~\rightarrow~~~
+	\begin{matrix}
+	A: & [3 &  & ] \\
+	B: & [ &  & ] \\
+	C: & [2 & 1 & ]
+	\end{matrix} $$
+	
+	\part Você pode optar por duas formas diferentes de apresentação do projeto:
+	\begin{enumerate}
+		\item A solução para a torre é demonstrada automaticamente, ou;
+		\item O usuário pode jogar livremente o jogo. A dinâmica e jogabilidade deve ser definida por você, sendo explicada dentro da programação.
+	\end{enumerate}
+\end{parts}
+
+\newpage
+\begin{center}
+	\section*{Projeto 02 - Árvore Binária}
+\end{center}
+
+Neste projeto, vamos implementar uma Árvore Binária que será criada de forma aleatória. Para isso, vamos utilizar, novamente, a geração de números aleatórios inteiros entre 0 e 20. Para a criação da árvore, siga os seguintes passos:
+
+\begin{enumerate}
+	\item Gere um número inteiro aleatório (\href{https://www.cplusplus.com/reference/cstdlib/rand/}{rand()}).
+	\item Desenvolva a árvore alocando o número à esquerda ou à direita, baseado em uma comparação simples de maior ou menor. Caso o número já esteja presente na árvore, ignore e faça o sorteio de um novo número.
+	\item Desenvolva esse processo um número limitado de vezes (100 ou 1000 vezes), não sendo necessário alocar todos os número na árvore.
+	\item Faça a demonstração da árvore no formato matricial (Matriz de Adjacência). A matriz é criada considerando:
+	\begin{itemize}
+		\item Cada linha está associada ao número de origem, o nó raiz.
+		\item A coluna, por sua vez, está associada às folhas ou aos nós filhos.
+		\item Desta forma, cada célula $(x,y)$ da matriz indica a conexão com $x$ sendo a raiz e $y$ a folha.
+		\item Exemplo:
+		\begin{figure} [H]
+			\centering
+			\includegraphics[width=.5\textwidth]{Figuras/Tree.png}
+		\end{figure}
+	
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{cccccccccccccccc}
+				& 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\ \cline{2-16} 
+				\multicolumn{1}{c|}{1} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} \\ \cline{2-16} 
+				\multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} \\ \cline{2-16} 
+				\multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{1} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{1} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} \\ \cline{2-16} 
+				\multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} \\ \cline{2-16} 
+				\multicolumn{1}{c|}{5} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} \\ \cline{2-16} 
+				\multicolumn{1}{c|}{6} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{1} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{1} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} \\ \cline{2-16} 
+				\multicolumn{1}{c|}{7} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} \\ \cline{2-16} 
+				\multicolumn{1}{c|}{8} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{1} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{1} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} \\ \cline{2-16} 
+				\multicolumn{1}{c|}{9} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} \\ \cline{2-16} 
+				\multicolumn{1}{c|}{10} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{1} & \multicolumn{1}{c|}{} \\ \cline{2-16} 
+				\multicolumn{1}{c|}{11} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} \\ \cline{2-16} 
+				\multicolumn{1}{c|}{12} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} \\ \cline{2-16} 
+				\multicolumn{1}{c|}{13} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} \\ \cline{2-16} 
+				\multicolumn{1}{c|}{14} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{1} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} \\ \cline{2-16} 
+				\multicolumn{1}{c|}{15} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} \\ \cline{2-16} 
+			\end{tabular}
+		\end{table}
+	\end{itemize}
+\end{enumerate}
+
+
+
+
+%-------------------------------------------------
+\end{document}
